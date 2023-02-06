@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    .text1{
+    width:380px;
+    }
+    .form-select{
+    width:300px;
+    }
+    .container{
+        background-color: #cfd1d2;
+background-image: linear-gradient(160deg, #cfd1d2 0%, #dde0e0 100%);
+padding:230px;
+}
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <center>
+    <form method="post">{% csrf_token %}
+        <table border="1">
+            <tr>
+                <th>Job Title</th>
+                <td><input class="text1" type="text" name="title"></td>
+            </tr>
+            {% for i in x %}
+            <tr>
+                <th>Company Name</th>
+                <td><input class="text1" type="text" name="cname" value="{{i.username}}" readonly></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <th>Company Email</th>
+                <td><input class="text1" type="email" name="cemail"></td>
+            </tr>
+            <tr>
+                <th>Experience</th>
+                <td>
+                        <select name="expe" class="form-select" aria-label="Default select example">
+        <option selected>Experience</option>
+        <option value="0-1">0-1 years</option>
+        <option value="1-2">1-2 years</option>
+        <option value="2-3">2-3 years</option>
+        <option value="3-4">3-4 years</option>
+        <option value="4-5">4-5 years</option>
+        <option value="5-6">5-6 years</option>
+        <option value="6-7">6-7 years</option>
+        <option value="7-8">7-8 years</option>
+        <option value="8-9">8-9 years</option>
+        <option value="9-10">9-10 years</option>
+    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Workplace Type</th>
+                <td>
+                    <select name="wplace" class="form-select" aria-label="Default select example">
+        <option selected>Workplace Type</option>
+        <option value="hybrid">Hybrid</option>
+        <option value="remote">Remote</option>
+    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Employment Type</th>
+                <td>
+                    <select name="emp" class="form-select" aria-label="Default select example">
+        <option selected>EmploymentType</option>
+        <option value="fulltime">FullTime</option>
+        <option value="partime">Partime</option>
+    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Job Description</th>
+                <td><textarea name="des" rows="5" cols="50" style="height:50px"></textarea></td>
+            </tr>
+        </table>
+        <div>
+            <button type="submit">Post</button>
+        </div>
+    </form>
+    </center>
+</div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .edit{
+        background-color:FFCCFF;
+        border-radius:10px;
+        font-family:Lucida Sans;
+        }
+
+    </style>
+</head>
+<body>
+<center>
+    <h1>Details of Applicants</h1>
+    <table class="edit" border="1" width="100%">
+        <tr>
+            <th>Company Name</th>
+            <th>Full Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Qualification</th>
+            <th>Year of Passing</th>
+            <th>Skills</th>
+            <th>Ready to Relocate</th>
+            <th>Project Done</th>
+            <th>Resume</th>
+        </tr>
+        {% for i,j,k,l,m,n,o,p,q,r,s in employee %}
+        <tr>
+        <tr>
+            <td>{{i}}</td>
+            <td>{{j}}</td>
+            <td>{{ k }}</td>
+            <td>{{ l}}</td>
+            <td>{{ m}}</td>
+            <td>{{ n }}</td>
+            <td>{{ o}}</td>
+            <td>{{ p}}</td>
+            <td>{{ q }}</td>
+            <td>{{ r}}</td>
+            <td>
+                <a href="{% static s %}" download>{{s}}</a>
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+</center>
+
+</body>
+</html>

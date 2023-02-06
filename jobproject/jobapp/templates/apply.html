@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+        border-radius:40px;
+        background-color:pink;
+        width:500px;
+        height:900px;
+        font-family:verdana;}
+        .company{
+        border-radius:10px;
+        height:20px;
+        margin-top:10px;}
+        .jobsubmit{
+        border-radius:20px;
+        background-color:green;
+        color:white;
+        margin-top:30px;}
+        .brief{
+        width:300px;
+        height:100px;
+        border-radius:10px;}
+        .rrelocate{
+        height:40px;
+        width:100px;
+        border-radius:20px;}
+        .new{
+        font-family:verdana;
+        border-radius:10px;
+        margin-top:20px;}
+
+
+    </style>
+</head>
+<body>
+<center>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+
+
+            {% for i,j in company %}
+            <label><h3>Applying for:<input class="new" type="text" name="jobtitle" value="{{j}}" readonly></h3></label>
+            <label><h3>Company Name:<input class="new" type="text" name="cname" value="{{i}}" readonly></h3></label>
+            {% endfor %}
+
+
+
+            <label>Full Name</label>
+            <div><input class="company" type="text" name="fullname" placeholder="full name"></div>
+            <label>Phone Number</label>
+            <div><input class="company" type="number" placeholder="Phone Number" name="phone"></div>
+            <label>Email ID</label>
+            <div><input class="company" type="email" placeholder="Email" name="email"></div>
+            <label>Qualification with Stream</label>
+            <div><input class="company" type="text" name="qualification" placeholder="Highest Qualification"></div>
+            <label>Year of Passing</label>
+            <div><input class="company" type="number" name="passingyear" placeholder="Passing year"></div>
+            <label>Skills</label>
+            <div><input class="company" type="text" name="skills" placeholder="skills"></div>
+            <label class="rrelocate">Ready to Relocate ?</label>
+            <div><select class="rrelocate" name="relocate">
+                <option value="select">select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            </div>
+            <label>Brief Explanation about your project..</label>
+            <div><input class="brief" type="text" name="project" placeholder="Abstract of your project"></div>
+            <label>Resume</label>
+            <div><input class="company" type="file" placeholder="Drop your Resume" name="resume"></div>
+            <button class="jobsubmit" type="submit">Submit</button>
+
+
+        </form>
+    </div>
+</center>
+
+</body>
+</html
